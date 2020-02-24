@@ -1,0 +1,99 @@
+{
+  "type": "record",
+  "name": "Booking",
+  "fields": [
+    {
+      "name": "eventId",
+      "type": "string",
+      "doc": "Message unique identifier"
+    },
+    {
+      "name": "createdAt",
+      "type": "long",
+      "logicalType": "timestamp-millis",
+      "doc": "Date of creation of a message"
+    },
+    {
+      "name": "data",
+      "type": {
+        "name": "BookingData",
+        "type": "record",
+        "fields": [
+          {
+            "name": "id",
+            "type": "string",
+            "doc": "unique identifier of a booking"
+          },
+          {
+            "name": "member",
+            "type": {
+              "name": "BookingMember",
+              "type": "record",
+              "fields": [
+                {
+                  "name": "externalId",
+                  "type": "string",
+                  "doc": "Member unique identifier in external applications"
+                },
+                {
+                  "name": "firstName",
+                  "type": "string",
+                  "doc": "Member first name"
+                },
+                {
+                  "name": "lastName",
+                  "type": "string",
+                  "doc": "Member last name"
+                },
+                {
+                  "name": "email",
+                  "type": "string",
+                  "doc": "Member email"
+                },
+                {
+                  "name": "gender",
+                  "type": {
+                    "name": "MemberGender",
+                    "type": "enum",
+                    "symbols": [
+                      "male",
+                      "female",
+                      "unset"
+                    ]
+                  },
+                  "doc": "Member gender"
+                }
+              ]
+            },
+            "doc": "Member details"
+          },
+          {
+            "name": "instanceId",
+            "type": "string",
+            "doc": "Instance unique identifier"
+          },
+          {
+            "name": "status",
+            "type": {
+              "name": "BookingStatus",
+              "type": "enum",
+              "symbols": [
+                "active",
+                "cancelled"
+              ]
+            },
+            "doc": "Booking status"
+          },
+          {
+            "name": "cancelReason",
+            "type": [
+              "null",
+              "string"
+            ],
+            "doc": "Reason which member decided to cancel a booking"
+          }
+        ]
+      }
+    }
+  ]
+}
