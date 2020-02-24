@@ -12,8 +12,8 @@ jobs:
         uses: DivLoic/ccloud-registry-action@v0.0.1
         with:
           # path to the subject file
-          avro-subject-yaml: /schemas.yaml
+          avro-subject-yaml: ./schemas.yaml
           # path to the schemas folder
-          avro-files-path: schemas/
+          avro-files-path: ./schemas/
           # url to the schema-registry
           schema-registry-url: ${{ secrets.SCHEMA_REGISTRY_URL }}
