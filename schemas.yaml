@@ -1,0 +1,4 @@
+---
+schemas:
+  - subject: bookings_v1
+    file: bookings_v1.1.avsc
